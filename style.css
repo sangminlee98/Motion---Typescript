@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+body {
+  height: 100vh;
+  background-image: url("./motion-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.motion {
+  width: 800px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  height: 12vh;
+  font-size: 1.5em;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: #f64435;
+}
+
+.buttons {
+  background-color: #f64435;
+  color: white;
+  padding: 5px 15px;
+}
+
+.content {
+  height: 83vh;
+  position: relative;
+}
+
+.popup {
+  position: absolute;
+  background-color: rgba(57, 57, 57, 0.8);
+  width: 500px;
+  padding: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  z-index: 10;
+}
+
+.popup-button {
+  display: flex;
+  justify-content: right;
+}
+.popup-content {
+  display: flex;
+  flex-direction: column;
+}
+.popup-close > button {
+  color: #f64435;
+  padding: 8px;
+}
+.popup-content > label {
+  color: #ffe498;
+}
+.popup-content > *:nth-child(2) {
+  background-color: #575757;
+  color: white;
+  margin-bottom: 10px;
+}
+.popup-add > button {
+  background-color: #f64435;
+  color: white;
+  padding: 8px 12px;
+}
+
+footer {
+  height: 5vh;
+  background-color: black;
+  color: white;
+}
