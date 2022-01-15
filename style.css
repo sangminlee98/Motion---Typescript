@@ -8,6 +8,10 @@ button {
   cursor: pointer;
   background-color: transparent;
 }
+input {
+  outline: none;
+  padding: 3px 5px;
+}
 body {
   height: 100vh;
   background-image: url("./motion-background.png");
@@ -41,6 +45,10 @@ header {
 .content {
   height: 83vh;
   position: relative;
+}
+
+.hide {
+  display: none;
 }
 
 .popup {
@@ -77,7 +85,8 @@ header {
 .popup-add > button {
   background-color: #f64435;
   color: white;
-  padding: 8px 12px;
+  margin-top: 10px;
+  padding: 4px 12px;
 }
 
 footer {
