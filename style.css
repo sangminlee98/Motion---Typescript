@@ -13,6 +13,9 @@ input {
   padding: 3px 5px;
 }
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
   background-image: url("./motion-background.png");
   background-size: cover;
@@ -21,7 +24,6 @@ body {
 
 .motion {
   width: 800px;
-  margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -44,11 +46,20 @@ header {
 
 .content {
   height: 83vh;
-  position: relative;
 }
 
 .hide {
   display: none;
+}
+
+.popup-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
 .popup {
@@ -58,7 +69,7 @@ header {
   padding: 10px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -80%);
+  transform: translate(-50%, -50%);
   z-index: 10;
 }
 
