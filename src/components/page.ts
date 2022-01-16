@@ -5,6 +5,7 @@ export class PageComponent {
         this.element.setAttribute('class','page');
         this.element.textContent = "This is PageComponent";
     };
+    
     attatchTo(parent: HTMLElement, position: InsertPosition = 'afterbegin') {
         parent.insertAdjacentElement(position, this.element);
     }
