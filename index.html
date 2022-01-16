@@ -4,60 +4,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./style.css">
-  <script src="./build/main.js" defer></script>
+  <title>Motion</title>
+  <link rel="stylesheet" href="./style/style.css">
+  <script type="module" src="./build/app.js" defer></script>
 </head>
 <body>
-  <div class="motion">
-    <header>
-      <h3>MOTION</h3>
-      <nav class="nav">
-        <button class="buttons">IMAGE</button>
-        <button class="buttons">VIDEO</button>
-        <button class="buttons">NOTE</button>
-        <button class="buttons">TASK</button>
-      </nav>
+  <div class="app">
+    <header class="banner">
+      <h1 class="banner__title">MOTION</h1>
+      <ul class="control-panel">
+        <li><button id="new-image" class="create-button">Image</button></li>
+        <li><button id="new-video" class="create-button">Video</button></li>
+        <li><button id="new-note" class="create-button">Note</button></li>
+        <li><button id="new-todo" class="create-button">Todo</button></li>
+      </ul>
     </header>
-    <section class="content">
-      <div class="popup-background url-popup hide">
-        <div class="popup">
-          <div class="popup-button popup-close">
-            <button>X</button>
-          </div>
-          <div class="popup-content popup-title">
-            <label for="">Title</label>
-            <input type="text">
-          </div>
-          <div class="popup-content popup-body">
-            <label for="">URL</label>
-            <input type="text">
-          </div>
-          <div class="popup-button popup-add">
-            <button>ADD</button>
-          </div>
-        </div>
-      </div>
-      <div class="popup-background note-popup hide">
-        <div class="popup">
-          <div class="popup-button popup-close">
-            <button>X</button>
-          </div>
-          <div class="popup-content popup-title">
-            <label for="">Title</label>
-            <input type="text">
-          </div>
-          <div class="popup-content popup-body">
-            <label for="">Body</label>
-            <textarea></textarea>
-          </div>
-          <div class="popup-button popup-add">
-            <button>ADD</button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer></footer>
+    <main class="document"></main>
+    <footer class="footer">
+      <p>© Copyright by Sangmin Lee. All rights reserved.</p>
+    </footer>
   </div>
 </body>
 </html>
