@@ -1,11 +1,13 @@
+import { ImageComponent } from './page/item/image.js';
 export class PageComponent {
     constructor() {
         this.element = document.createElement('ul');
         this.element.setAttribute('class', 'page');
-        this.element.textContent = "This is PageComponent";
+        this.imgPage = new ImageComponent('제목', 'https://picsum.photos/300/150');
+        this.imgPage.attachTo(this.element);
     }
     ;
-    attatchTo(parent, position = 'afterbegin') {
+    attachTo(parent, position = 'afterbegin') {
         parent.insertAdjacentElement(position, this.element);
     }
 }
