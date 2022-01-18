@@ -12,7 +12,7 @@ export class PageComponent extends BaseComponent {
         noteComponent.attachTo(this.element);
         const todoComponent = new TodoComponent('Todo', 'first');
         todoComponent.attachTo(this.element);
-        const videoComponent = new VideoComponent('제목', 'https://www.youtube.com/embed/n61ULEU7CO0');
+        const videoComponent = new VideoComponent('제목', 'https://youtu.be/n61ULEU7CO0');
         videoComponent.attachTo(this.element);
     }
     ;
