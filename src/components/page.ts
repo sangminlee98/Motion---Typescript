@@ -1,6 +1,7 @@
 import { BaseComponent } from './component.js';
 import { ImageComponent } from './page/item/image.js';
 import { NoteComponent } from './page/item/note.js';
+import { TodoComponent } from './page/item/todo.js';
 
 export class PageComponent extends BaseComponent<HTMLUListElement> {
     constructor() {
@@ -9,5 +10,7 @@ export class PageComponent extends BaseComponent<HTMLUListElement> {
         imgComponent.attachTo(this.element);
         const noteComponent = new NoteComponent('Note','Note-body');
         noteComponent.attachTo(this.element);
+        const todoComponent = new TodoComponent('Todo','first','second');
+        todoComponent.attachTo(this.element);
     };
 }

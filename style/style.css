@@ -106,14 +106,6 @@ body {
   background-color: var(--accent-color);
 }
 
-.image {
-  display: flex;
-}
-
-.note {
-  display: flex;
-}
-
 .footer {
   background: var(--bg-main-color);
   border-top: 1px solid var(--border-color);
