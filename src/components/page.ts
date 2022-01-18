@@ -11,7 +11,7 @@ export class PageComponent extends BaseComponent<HTMLUListElement> {
         imgComponent.attachTo(this.element);
         const noteComponent = new NoteComponent('Note','Note-body');
         noteComponent.attachTo(this.element);
-        const todoComponent = new TodoComponent('Todo','first','second');
+        const todoComponent = new TodoComponent('Todo','first');
         todoComponent.attachTo(this.element);
         const videoComponent = new VideoComponent('제목','<iframe width="950" height="534" src="https://www.youtube.com/embed/n61ULEU7CO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
         videoComponent.attachTo(this.element);

@@ -12,7 +12,10 @@ export class TodoComponent extends BaseComponent<HTMLLIElement> {
     const listComponent = this.element.querySelector('.todo__list')! as HTMLUListElement;
     todoList.map(list => {
       const listItem = document.createElement('li');
-      listItem.textContent = list;
+      const checkboxInput = document.createElement('input')! as HTMLInputElement;
+      checkboxInput.type = 'checkbox';
+      listItem.appendChild(checkboxInput);
+      checkboxInput.insertAdjacentText('afterend',list);
       listComponent.appendChild(listItem);
     });
   }
