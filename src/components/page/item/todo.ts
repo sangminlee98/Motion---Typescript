@@ -7,16 +7,16 @@ export class TodoComponent extends BaseComponent<HTMLLIElement> {
       <ul class="todo__list">
       </ul>
     </li>`);
-    const titleComponent = this.element.querySelector('.todo__title')! as HTMLHeadingElement;
-    titleComponent.textContent = title;
-    const listComponent = this.element.querySelector('.todo__list')! as HTMLUListElement;
+    const titleElement = this.element.querySelector('.todo__title')! as HTMLHeadingElement;
+    titleElement.textContent = title;
+    const listElement = this.element.querySelector('.todo__list')! as HTMLUListElement;
     todoList.map(list => {
       const listItem = document.createElement('li');
       const checkboxInput = document.createElement('input')! as HTMLInputElement;
       checkboxInput.type = 'checkbox';
       listItem.appendChild(checkboxInput);
       checkboxInput.insertAdjacentText('afterend',list);
-      listComponent.appendChild(listItem);
+      listElement.appendChild(listItem);
     });
   }
 }
