@@ -7,10 +7,17 @@ class PageItemComponent extends BaseComponent {
           <button class="close">x</button>
         </div>
       </li>`);
+        const closeBtn = this.element.querySelector('.close');
+        closeBtn.addEventListener('click', () => {
+            this.listener && this.listener();
+        });
     }
     addChild(child) {
         const container = this.element.querySelector('.page-item__body');
         child.attachTo(container);
+    }
+    setOnCloseListener(listener) {
+        this.listener = listener;
     }
 }
 export class PageComponent extends BaseComponent {
@@ -21,6 +28,9 @@ export class PageComponent extends BaseComponent {
     addChild(section) {
         const pageItemComponent = new PageItemComponent();
         pageItemComponent.addChild(section);
+        pageItemComponent.setOnCloseListener(() => {
+            pageItemComponent.removeFrom(this.element);
+        });
         pageItemComponent.attachTo(this.element, 'beforeend');
     }
 }
