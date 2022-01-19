@@ -1,19 +1,32 @@
-import { BaseComponent } from './component.js';
-import { ImageComponent } from './page/item/image.js';
-import { NoteComponent } from './page/item/note.js';
-import { TodoComponent } from './page/item/todo.js';
-import { VideoComponent } from './page/item/video.js';
+import { BaseComponent, Component } from './component.js';
 
-export class PageComponent extends BaseComponent<HTMLUListElement> {
-    constructor() {
-        super('<ul class="page"></ul>');
-        const imgComponent = new ImageComponent('제목','https://picsum.photos/300/150');
-        imgComponent.attachTo(this.element);
-        const noteComponent = new NoteComponent('Note','Note-body');
-        noteComponent.attachTo(this.element);
-        const todoComponent = new TodoComponent('Todo','first');
-        todoComponent.attachTo(this.element);
-        const videoComponent = new VideoComponent('제목','https://youtu.be/n61ULEU7CO0');
-        videoComponent.attachTo(this.element);
-    };
+export interface Composable {
+  addChild(child: Component): void;
+}
+
+class PageItemComponent extends BaseComponent<HTMLLIElement> implements Composable{
+  constructor() {
+    super(
+      `<li class="page-item">
+        <section class="page-item__body"></section>
+        <div class="page-item__controls">
+          <button class="close">x</button>
+        </div>
+      </li>`);
+  }
+  addChild(child: Component) {
+    const container = this.element.querySelector('.page-item__body')! as HTMLElement;
+    child.attachTo(container);
+  }
+}
+
+export class PageComponent extends BaseComponent<HTMLUListElement> implements Composable {
+  constructor() {
+    super('<ul class="page"></ul>');
+  };
+  addChild(section: Component) {
+    const pageItemComponent = new PageItemComponent();
+    pageItemComponent.addChild(section);
+    pageItemComponent.attachTo(this.element, 'beforeend');
+  }
 }

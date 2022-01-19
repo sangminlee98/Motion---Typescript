@@ -1,9 +1,9 @@
 import { BaseComponent } from '../../component.js';
 
-export class VideoComponent extends BaseComponent<HTMLLIElement> {
+export class VideoComponent extends BaseComponent<HTMLElement> {
   constructor(title: string, url: string) {
     super(`
-    <li class="video">
+    <section class="video">
       <div class="video__holder">
         <iframe
           class="video__iframe"
@@ -16,7 +16,7 @@ export class VideoComponent extends BaseComponent<HTMLLIElement> {
         </iframe>
       </div>
       <p class="video__title"></p>
-    </li>`);
+    </section>`);
     const iframeElement = this.element.querySelector('.video__iframe')! as HTMLIFrameElement;
     iframeElement.src = this.convertToEmbeddedURL(url);
     const titleElement = this.element.querySelector('.video__title')! as HTMLParagraphElement;
