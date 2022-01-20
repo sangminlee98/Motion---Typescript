@@ -5,8 +5,17 @@ export interface Composable {
 }
 
 type OnCloseListener = () => void;
-class PageItemComponent extends BaseComponent<HTMLLIElement> implements Composable{
-  private listener: OnCloseListener | undefined;
+
+interface SectionContainer extends Component, Composable {
+  setOnCloseListener(listener: OnCloseListener): void;
+}
+
+type SectionContainerConstructor = {
+  new (): SectionContainer;
+}
+
+export class PageItemComponent extends BaseComponent<HTMLLIElement> implements SectionContainer {
+  private listener?: OnCloseListener;
   constructor() {
     super(
       `<li class="page-item">
@@ -30,11 +39,11 @@ class PageItemComponent extends BaseComponent<HTMLLIElement> implements Composab
 }
 
 export class PageComponent extends BaseComponent<HTMLUListElement> implements Composable {
-  constructor() {
+  constructor(private pageItemConstructor: SectionContainerConstructor) {
     super('<ul class="page"></ul>');
   };
   addChild(section: Component) {
-    const pageItemComponent = new PageItemComponent();
+    const pageItemComponent = new this.pageItemConstructor()
     pageItemComponent.addChild(section);
     pageItemComponent.setOnCloseListener(() => {
       pageItemComponent.removeFrom(this.element);
