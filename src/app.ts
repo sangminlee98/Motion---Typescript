@@ -1,6 +1,6 @@
 import { Component } from './components/component.js';
 import { Composable, PageComponent, PageItemComponent } from './components/page.js'
-import { InputDialog } from './components/page/dialog/dialog.js';
+import { InputDialog, MediaData, TextData } from './components/page/dialog/dialog.js';
 import { MediaSectionInput } from './components/page/dialog/input/media-input.js';
 import { TextSectionInput } from './components/page/dialog/input/text-input.js';
 import { ImageComponent } from './components/page/item/image.js';
@@ -8,7 +8,7 @@ import { NoteComponent } from './components/page/item/note.js';
 import { TodoComponent } from './components/page/item/todo.js';
 import { VideoComponent } from './components/page/item/video.js';
 
-type InputComponentConstructor<T = MediaSectionInput | TextSectionInput> = {
+type InputComponentConstructor<T = (MediaData | TextData) & Component> = {
   new (): T;
 }
 
@@ -23,7 +23,7 @@ class App {
     this.bindDialogToElement('#new-note', TextSectionInput, input => new NoteComponent(input.title, input.body));
     this.bindDialogToElement('#new-todo', TextSectionInput, input => new TodoComponent(input.title, input.body));
   };
-  bindDialogToElement<T extends MediaSectionInput | TextSectionInput>(selector: string, inputComponenet: InputComponentConstructor<T>, makeSection: (input: T) => Component) {
+  bindDialogToElement<T extends (MediaData | TextData) & Component>(selector: string, inputComponenet: InputComponentConstructor<T>, makeSection: (input: T) => Component) {
     const element = document.querySelector(selector)! as HTMLButtonElement;
     element.addEventListener('click', () => {
       const dialog = new InputDialog();
