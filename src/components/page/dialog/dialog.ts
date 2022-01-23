@@ -19,11 +19,11 @@ export class InputDialog extends BaseComponent<HTMLElement> implements Composabl
             <div class="dialog__container">
               <button class="close">x</button>
               <div id="dialog__body"></div>
-              <button class="submit">ADD</button>
+              <button class="dialog__submit">ADD</button>
             </div>
           </dialog>`);
     const closeBtn = this.element.querySelector('.close')! as HTMLButtonElement;
-    const submitBtn = this.element.querySelector('.submit')! as HTMLButtonElement;
+    const submitBtn = this.element.querySelector('.dialog__submit')! as HTMLButtonElement;
     closeBtn.onclick = () => {
       this.onCloseListener && this.onCloseListener();
     };

@@ -15,7 +15,7 @@ export class VideoComponent extends BaseComponent<HTMLElement> {
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video__title"></p>
+      <p class="page-item__title video__title"></p>
     </section>`);
     const iframeElement = this.element.querySelector('.video__iframe')! as HTMLIFrameElement;
     iframeElement.src = this.convertToEmbeddedURL(url);
