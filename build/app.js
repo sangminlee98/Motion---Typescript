@@ -10,6 +10,10 @@ class App {
     constructor(appRoot, dialogRoot) {
         this.dialogRoot = dialogRoot;
         this.page = new PageComponent(PageItemComponent);
+        this.page.addChild(new ImageComponent('Image Title', 'https://picsum.photos/300/150'));
+        this.page.addChild(new VideoComponent('Video Title', 'https://www.youtube.com/watch?v=pjqXFo73BzA'));
+        this.page.addChild(new NoteComponent('Note Title', 'note body'));
+        this.page.addChild(new TodoComponent('Todo Title', 'todo body'));
         this.page.attachTo(appRoot);
         this.bindDialogToElement('#new-image', MediaSectionInput, input => new ImageComponent(input.title, input.url));
         this.bindDialogToElement('#new-video', MediaSectionInput, input => new VideoComponent(input.title, input.url));
