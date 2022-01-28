@@ -57,6 +57,9 @@ export class PageItemComponent extends BaseComponent {
             this.element.classList.remove('mute-children');
         }
     }
+    getBoundingRect() {
+        return this.element.getBoundingClientRect();
+    }
 }
 export class PageComponent extends BaseComponent {
     constructor(pageItemConstructor) {
@@ -73,16 +76,16 @@ export class PageComponent extends BaseComponent {
     ;
     onDragOver(event) {
         event.preventDefault();
-        console.log('drag over', event);
     }
     onDrop(event) {
         event.preventDefault();
-        console.log('drop');
         if (!this.dropTarget)
             return;
         if (this.dragTarget && this.dragTarget !== this.dropTarget) {
+            const dropY = event.clientY;
+            const srcElement = this.dragTarget.getBoundingRect();
             this.dragTarget.removeFrom(this.element);
-            this.dropTarget.attach(this.dragTarget, 'beforebegin');
+            this.dropTarget.attach(this.dragTarget, dropY < srcElement.y ? 'beforebegin' : 'afterend');
         }
     }
     addChild(section) {
@@ -105,11 +108,9 @@ export class PageComponent extends BaseComponent {
                     this.updateSections('unmute');
                     break;
                 case 'enter':
-                    console.log('enter', target);
                     this.dropTarget = target;
                     break;
                 case 'leave':
-                    console.log('leave', target);
                     this.dropTarget = undefined;
                     break;
                 default:
